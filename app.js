@@ -750,7 +750,7 @@ class ContactForm {
         this.submitBtn.disabled = true;
         
         try {
-            // Simulate API call with different methods
+            // Try AJAX submission first
             await this.submitMessage(data);
             this.showStatus('MESSAGE TRANSMITTED SUCCESSFULLY!', 'success');
             this.form.reset();
@@ -758,18 +758,24 @@ class ContactForm {
                 input.parentElement.classList.remove('has-value');
             });
         } catch (error) {
-            this.showStatus(`TRANSMISSION FAILED: ${error.message}`, 'error');
+            // Fallback to native form submission
+            console.log('AJAX submission failed, falling back to native form submission');
+            this.showStatus('REDIRECTING TO SECURE TRANSMISSION...', 'loading');
+            // Let the form submit naturally to Formspree
+            setTimeout(() => {
+                this.form.submit();
+            }, 1000);
         } finally {
             this.submitBtn.disabled = false;
         }
     }
     
     async submitMessage(data) {
-        // Here you can implement different message sending methods
+        // Using Formspree for email delivery
+        // Form ID: mldnrajl for ashutoshpadhi.tech@gmail.com
+        return this.submitToFormspree(data, 'mldnrajl');
         
-        // Method 1: Formspree (Recommended for beginners)
-        // Replace 'YOUR_FORM_ID' with your actual Formspree form ID
-        // return this.submitToFormspree(data, 'YOUR_FORM_ID');
+        // Alternative methods (uncomment to use):
         
         // Method 2: Netlify Forms (if hosted on Netlify)
         // return this.submitToNetlify(data);
@@ -779,14 +785,6 @@ class ContactForm {
         
         // Method 4: Custom backend API
         // return this.submitToCustomAPI(data);
-        
-        // For demo purposes, simulate a successful submission
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log('Contact form data:', data);
-                resolve();
-            }, 2000);
-        });
     }
     
     // Formspree integration

@@ -495,7 +495,9 @@
                             </div>
                         </div>
                         <div class="card-content">
-                            <form id="contact-form" class="cyber-form">
+                            <form id="contact-form" class="cyber-form" 
+                                  action="https://formspree.io/f/mldnrajl" 
+                                  method="POST">
                                 <div class="form-group">
                                     <label for="name" class="form-label">
                                         <span class="label-icon">👤</span>
@@ -532,6 +534,9 @@
                                               placeholder="Type your message here..." rows="5"></textarea>
                                 </div>
                                 
+                                <!-- Honeypot field to prevent spam -->
+                                <input type="text" name="_gotcha" style="display:none !important">
+                                
                                 <div class="form-actions">
                                     <button type="submit" class="cyber-btn primary submit-btn">
                                         <span class="btn-text">TRANSMIT_MESSAGE.exe</span>
@@ -553,7 +558,7 @@
                                 <div class="contact-icon">📧</div>
                                 <div class="contact-details">
                                     <div class="contact-label">EMAIL_ADDRESS</div>
-                                    <a href="mailto:ashutoshpadhi.tech" class="contact-value cyber-link">ashutoshpadhi.tech</a>
+                                    <a href="mailto:ashutoshpadhi.tech@gmail.com" class="contact-value cyber-link">ashutoshpadhi.tech@gmail.com</a>
                                 </div>
                             </div>
                             
