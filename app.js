@@ -502,6 +502,306 @@ class PerformanceMonitor {
     }
 }
 
+// Cyberpunk Loader
+class CyberpunkLoader {
+    constructor() {
+        this.container = document.getElementById('cyberpunk-loader');
+        this.progress = document.querySelector('.loader-progress');
+        this.percentage = document.querySelector('.loader-percentage');
+        this.loadingText = document.querySelector('.loading-text');
+        this.matrixCanvas = document.getElementById('loader-matrix');
+        this.matrixCtx = this.matrixCanvas ? this.matrixCanvas.getContext('2d') : null;
+        
+        this.currentProgress = 0;
+        this.targetProgress = 0;
+        this.isLoading = true;
+        this.loadingSteps = [
+            { progress: 20, text: 'INITIALIZING SYSTEM...' },
+            { progress: 40, text: 'LOADING MATRIX...' },
+            { progress: 60, text: 'CONNECTING TO MAINFRAME...' },
+            { progress: 80, text: 'ESTABLISHING NEURAL LINK...' },
+            { progress: 95, text: 'CYBERPUNK PROTOCOL ACTIVE...' },
+            { progress: 100, text: 'SYSTEM ONLINE' }
+        ];
+        this.currentStep = 0;
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.matrixCanvas) {
+            this.setupMatrix();
+            this.animateMatrix();
+        }
+        this.startLoading();
+    }
+    
+    setupMatrix() {
+        this.matrixCanvas.width = window.innerWidth;
+        this.matrixCanvas.height = window.innerHeight;
+        this.matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*';
+        this.matrixColumns = this.matrixCanvas.width / 14;
+        this.matrixDrops = [];
+        
+        for (let i = 0; i < this.matrixColumns; i++) {
+            this.matrixDrops[i] = Math.random() * -100;
+        }
+    }
+    
+    animateMatrix() {
+        if (!this.isLoading || !this.matrixCtx) return;
+        
+        this.matrixCtx.fillStyle = 'rgba(10, 10, 15, 0.05)';
+        this.matrixCtx.fillRect(0, 0, this.matrixCanvas.width, this.matrixCanvas.height);
+        
+        this.matrixCtx.fillStyle = '#00ffff';
+        this.matrixCtx.font = '14px monospace';
+        
+        for (let i = 0; i < this.matrixDrops.length; i++) {
+            const char = this.matrixChars[Math.floor(Math.random() * this.matrixChars.length)];
+            this.matrixCtx.fillText(char, i * 14, this.matrixDrops[i] * 14);
+            
+            if (this.matrixDrops[i] * 14 > this.matrixCanvas.height && Math.random() > 0.975) {
+                this.matrixDrops[i] = 0;
+            }
+            this.matrixDrops[i]++;
+        }
+        
+        requestAnimationFrame(() => this.animateMatrix());
+    }
+    
+    startLoading() {
+        const loadNextStep = () => {
+            if (this.currentStep < this.loadingSteps.length) {
+                const step = this.loadingSteps[this.currentStep];
+                this.targetProgress = step.progress;
+                this.loadingText.textContent = step.text;
+                this.currentStep++;
+                
+                // Animate progress
+                const animateProgress = () => {
+                    if (this.currentProgress < this.targetProgress) {
+                        this.currentProgress += Math.random() * 3 + 1;
+                        if (this.currentProgress > this.targetProgress) {
+                            this.currentProgress = this.targetProgress;
+                        }
+                        
+                        this.progress.style.width = `${this.currentProgress}%`;
+                        this.percentage.textContent = `${Math.floor(this.currentProgress)}%`;
+                        
+                        if (this.currentProgress < this.targetProgress) {
+                            requestAnimationFrame(animateProgress);
+                        } else {
+                            setTimeout(loadNextStep, 500 + Math.random() * 1000);
+                        }
+                    }
+                };
+                
+                animateProgress();
+            } else {
+                setTimeout(() => this.hideLoader(), 1000);
+            }
+        };
+        
+        setTimeout(loadNextStep, 500);
+    }
+    
+    hideLoader() {
+        this.isLoading = false;
+        this.container.classList.add('hidden');
+        setTimeout(() => {
+            this.container.style.display = 'none';
+        }, 500);
+    }
+}
+
+// Contact Form Handler
+class ContactForm {
+    constructor() {
+        this.form = document.getElementById('contact-form');
+        this.status = document.getElementById('form-status');
+        this.submitBtn = this.form?.querySelector('.submit-btn');
+        
+        if (this.form) {
+            this.init();
+        }
+    }
+    
+    init() {
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.handleSubmit();
+        });
+        
+        // Add input validation effects
+        const inputs = this.form.querySelectorAll('.cyber-input, .cyber-textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => this.handleInputFocus(input));
+            input.addEventListener('blur', () => this.handleInputBlur(input));
+            input.addEventListener('input', () => this.handleInputChange(input));
+        });
+    }
+    
+    handleInputFocus(input) {
+        input.parentElement.classList.add('focused');
+    }
+    
+    handleInputBlur(input) {
+        input.parentElement.classList.remove('focused');
+        this.validateInput(input);
+    }
+    
+    handleInputChange(input) {
+        if (input.value.length > 0) {
+            input.parentElement.classList.add('has-value');
+        } else {
+            input.parentElement.classList.remove('has-value');
+        }
+    }
+    
+    validateInput(input) {
+        const isValid = input.checkValidity();
+        input.parentElement.classList.toggle('invalid', !isValid);
+        return isValid;
+    }
+    
+    async handleSubmit() {
+        // Validate all inputs
+        const inputs = this.form.querySelectorAll('.cyber-input, .cyber-textarea');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (!this.validateInput(input)) {
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
+            this.showStatus('ERROR: PLEASE CORRECT THE HIGHLIGHTED FIELDS', 'error');
+            return;
+        }
+        
+        // Collect form data
+        const formData = new FormData(this.form);
+        const data = Object.fromEntries(formData.entries());
+        
+        this.showStatus('TRANSMITTING MESSAGE...', 'loading');
+        this.submitBtn.disabled = true;
+        
+        try {
+            // Simulate API call with different methods
+            await this.submitMessage(data);
+            this.showStatus('MESSAGE TRANSMITTED SUCCESSFULLY!', 'success');
+            this.form.reset();
+            inputs.forEach(input => {
+                input.parentElement.classList.remove('has-value');
+            });
+        } catch (error) {
+            this.showStatus(`TRANSMISSION FAILED: ${error.message}`, 'error');
+        } finally {
+            this.submitBtn.disabled = false;
+        }
+    }
+    
+    async submitMessage(data) {
+        // Here you can implement different message sending methods
+        
+        // Method 1: Formspree (Recommended for beginners)
+        // Replace 'YOUR_FORM_ID' with your actual Formspree form ID
+        // return this.submitToFormspree(data, 'YOUR_FORM_ID');
+        
+        // Method 2: Netlify Forms (if hosted on Netlify)
+        // return this.submitToNetlify(data);
+        
+        // Method 3: EmailJS (Client-side email service)
+        // return this.submitToEmailJS(data);
+        
+        // Method 4: Custom backend API
+        // return this.submitToCustomAPI(data);
+        
+        // For demo purposes, simulate a successful submission
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log('Contact form data:', data);
+                resolve();
+            }, 2000);
+        });
+    }
+    
+    // Formspree integration
+    async submitToFormspree(data, formId) {
+        const response = await fetch(`https://formspree.io/f/${formId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        if (!response.ok) {
+            throw new Error('NETWORK ERROR');
+        }
+        
+        return response.json();
+    }
+    
+    // Netlify Forms integration
+    async submitToNetlify(data) {
+        const response = await fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'form-name': 'contact',
+                ...data
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error('NETWORK ERROR');
+        }
+        
+        return response;
+    }
+    
+    // EmailJS integration
+    async submitToEmailJS(data) {
+        // You need to include EmailJS library and configure it
+        // return emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', data);
+        throw new Error('EmailJS not configured');
+    }
+    
+    // Custom API integration
+    async submitToCustomAPI(data) {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        if (!response.ok) {
+            throw new Error('API ERROR');
+        }
+        
+        return response.json();
+    }
+    
+    showStatus(message, type) {
+        this.status.textContent = message;
+        this.status.className = `form-status ${type}`;
+        
+        if (type === 'success') {
+            setTimeout(() => {
+                this.status.textContent = '';
+                this.status.className = 'form-status';
+            }, 5000);
+        }
+    }
+}
+
 // Initialize Application
 class CyberpunkPortfolio {
     constructor() {
@@ -512,6 +812,8 @@ class CyberpunkPortfolio {
         this.audioSystem = null;
         this.scrollEffects = null;
         this.performanceMonitor = null;
+        this.cyberpunkLoader = null;
+        this.contactForm = null;
         
         this.init();
     }
@@ -528,36 +830,41 @@ class CyberpunkPortfolio {
     start() {
         console.log('🚀 Initializing Cyberpunk Portfolio...');
         
-        // Initialize all systems
-        this.digitalRain = new DigitalRain();
-        this.particleSystem = new ParticleSystem();
-        this.navigation = new Navigation();
-        this.glitchEffects = new GlitchEffects();
-        this.audioSystem = new AudioSystem();
-        this.scrollEffects = new ScrollEffects();
-        this.performanceMonitor = new PerformanceMonitor();
+        // Initialize loader first
+        this.cyberpunkLoader = new CyberpunkLoader();
         
-        // Initialize typing effect
-        const typedElement = document.querySelector('.typed-text');
-        if (typedElement) {
-            new TypingEffect(typedElement, [
-                'SYSTEM ONLINE...',
-                'WELCOME TO THE MATRIX',
-                'FULL-STACK DEVELOPER',
-                'CODE ARCHITECT',
-                'DIGITAL INNOVATOR'
-            ], 150);
-        }
-        
-        // Add window resize handler
-        window.addEventListener('resize', () => {
-            this.digitalRain.resize();
-        });
-        
-        // Add CSS animations for scroll effects
-        this.addScrollAnimationStyles();
-        
-        console.log('✅ Portfolio systems initialized');
+        // Initialize other systems after a delay to show loader
+        setTimeout(() => {
+            this.digitalRain = new DigitalRain();
+            this.particleSystem = new ParticleSystem();
+            this.navigation = new Navigation();
+            this.glitchEffects = new GlitchEffects();
+            this.audioSystem = new AudioSystem();
+            this.scrollEffects = new ScrollEffects();
+            this.performanceMonitor = new PerformanceMonitor();
+            this.contactForm = new ContactForm();
+            // Initialize typing effect
+            const typedElement = document.querySelector('.typed-text');
+            if (typedElement) {
+                new TypingEffect(typedElement, [
+                    'SYSTEM ONLINE...',
+                    'WELCOME TO THE MATRIX',
+                    'FULL-STACK DEVELOPER',
+                    'CODE ARCHITECT',
+                    'DIGITAL INNOVATOR'
+                ], 150);
+            }
+            
+            // Add window resize handler
+            window.addEventListener('resize', () => {
+                this.digitalRain.resize();
+            });
+            
+            // Add CSS animations for scroll effects
+            this.addScrollAnimationStyles();
+            
+            console.log('✅ Portfolio systems initialized');
+        }, 1000);
     }
     
     addScrollAnimationStyles() {

@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Cyberpunk Loader -->
+    <div id="cyberpunk-loader" class="loader-container">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="logo-text glitch" data-text="AT">AT</span>
+            </div>
+            <div class="loader-bar-container">
+                <div class="loader-bar">
+                    <div class="loader-progress"></div>
+                </div>
+                <div class="loader-percentage">0%</div>
+            </div>
+            <div class="loader-text">
+                <span class="loading-text">INITIALIZING SYSTEM...</span>
+            </div>
+            <div class="loader-matrix">
+                <canvas id="loader-matrix"></canvas>
+            </div>
+        </div>
+    </div>
+
     <!-- Digital Rain Background -->
     <canvas id="digital-rain"></canvas>
     
@@ -182,7 +203,7 @@
                                 <span class="tech-tag">Problem Solving</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/AshstarTempest/dsa-in-java" target="_blank" class="cyber-link">
+                                <a href="https://github.com/RemasteredGod/dsa-in-java" target="_blank" class="cyber-link">
                                     <span class="link-text">github.repo</span>
                                 </a>
                             </div>
@@ -204,7 +225,7 @@
                                 <span class="tech-tag">React</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/AshstarTempest/Droplet" target="_blank" class="cyber-link">
+                                <a href="https://github.com/RemasteredGod/Droplet" target="_blank" class="cyber-link">
                                     <span class="link-text">github.repo</span>
                                 </a>
                             </div>
@@ -226,7 +247,7 @@
                                 <span class="tech-tag">Kubernetes</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/AshstarTempest/dock-shift" target="_blank" class="cyber-link">
+                                <a href="https://github.com/RemasteredGod/dock-shift" target="_blank" class="cyber-link">
                                     <span class="link-text">github.repo</span>
                                 </a>
                             </div>
@@ -248,7 +269,7 @@
                                 <span class="tech-tag">AI</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/AshstarTempest/DataGenius" target="_blank" class="cyber-link">
+                                <a href="https://github.com/RemasteredGod/DataGenius" target="_blank" class="cyber-link">
                                     <span class="link-text">github.repo</span>
                                 </a>
                             </div>
@@ -270,7 +291,7 @@
                                 <span class="tech-tag">SQLite</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/AshstarTempest/SQL-Simplified-Python-Edition" target="_blank" class="cyber-link">
+                                <a href="https://github.com/RemasteredGod/SQL-Simplified-Python-Edition" target="_blank" class="cyber-link">
                                     <span class="link-text">github.repo</span>
                                 </a>
                             </div>
@@ -292,7 +313,7 @@
                                 <span class="tech-tag">Modern Web</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/AshstarTempest" target="_blank" class="cyber-link">
+                                <a href="https://github.com/RemasteredGod" target="_blank" class="cyber-link">
                                     <span class="link-text">github.repo</span>
                                 </a>
                             </div>
@@ -448,6 +469,65 @@
                 </div>
                 
                 <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="cyber-card contact-form-card">
+                        <div class="card-header">
+                            <span class="card-title">MESSAGE_TERMINAL.exe</span>
+                            <div class="terminal-indicator">
+                                <span class="indicator-dot"></span>
+                                <span class="indicator-text">READY</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <form id="contact-form" class="cyber-form">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">
+                                        <span class="label-icon">👤</span>
+                                        USER_NAME
+                                    </label>
+                                    <input type="text" id="name" name="name" class="cyber-input" required 
+                                           placeholder="Enter your name..." autocomplete="name">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">
+                                        <span class="label-icon">📧</span>
+                                        EMAIL_ADDRESS
+                                    </label>
+                                    <input type="email" id="email" name="email" class="cyber-input" required 
+                                           placeholder="your.email@domain.com" autocomplete="email">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">
+                                        <span class="label-icon">📝</span>
+                                        SUBJECT_LINE
+                                    </label>
+                                    <input type="text" id="subject" name="subject" class="cyber-input" required 
+                                           placeholder="What's this about?">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">
+                                        <span class="label-icon">💬</span>
+                                        MESSAGE_CONTENT
+                                    </label>
+                                    <textarea id="message" name="message" class="cyber-textarea" required 
+                                              placeholder="Type your message here..." rows="5"></textarea>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="cyber-btn primary submit-btn">
+                                        <span class="btn-text">TRANSMIT_MESSAGE.exe</span>
+                                        <span class="btn-glitch"></span>
+                                    </button>
+                                    <div class="form-status" id="form-status"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
                     <div class="cyber-card">
                         <div class="card-header">
                             <span class="card-title">CONTACT_INFO.json</span>
@@ -465,7 +545,7 @@
                                 <div class="contact-icon">🔗</div>
                                 <div class="contact-details">
                                     <div class="contact-label">GITHUB_REPOSITORY</div>
-                                    <a href="https://github.com/AshstarTempest" target="_blank" class="contact-value cyber-link">github.com/AshstarTempest</a>
+                                    <a href="https://github.com/RemasteredGod" target="_blank" class="contact-value cyber-link">github.com/RemasteredGod</a>
                                 </div>
                             </div>
                             
