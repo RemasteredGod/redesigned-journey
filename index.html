@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AshstarTempest - Cyberpunk Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Digital Rain Background -->
+    <canvas id="digital-rain"></canvas>
+    
+    <!-- Scanlines Overlay -->
+    <div class="scanlines"></div>
+    
+    <!-- Main Container -->
+    <div class="discord-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="server-info">
+                <div class="server-icon">
+                    <span class="icon-text glitch" data-text="AT">AT</span>
+                </div>
+                <div class="server-name">
+                    <span class="glitch" data-text="ASHSTAR_TEMPEST">ASHSTAR_TEMPEST</span>
+                </div>
+            </div>
+            
+            <nav class="channel-list">
+                <div class="channel-category">
+                    <span class="category-title">PORTFOLIO_SECTIONS</span>
+                </div>
+                <ul class="channels">
+                    <li class="channel active" data-section="home">
+                        <span class="channel-hash">#</span>
+                        <span class="channel-name">home</span>
+                    </li>
+                    <li class="channel" data-section="about">
+                        <span class="channel-hash">#</span>
+                        <span class="channel-name">about</span>
+                    </li>
+                    <li class="channel" data-section="projects">
+                        <span class="channel-hash">#</span>
+                        <span class="channel-name">projects</span>
+                    </li>
+                    <li class="channel" data-section="skills">
+                        <span class="channel-hash">#</span>
+                        <span class="channel-name">skills</span>
+                    </li>
+                    <li class="channel" data-section="contact">
+                        <span class="channel-hash">#</span>
+                        <span class="channel-name">contact</span>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="user-area">
+                <div class="user-info">
+                    <div class="avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2336393f'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-family='Arial' font-size='30' fill='%2300ffff'%3EAT%3C/text%3E%3C/svg%3E" alt="Avatar">
+                        <div class="status-indicator online"></div>
+                    </div>
+                    <div class="user-details">
+                        <span class="username">AshstarTempest</span>
+                        <span class="status">Available for projects</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <div class="section-header">
+                    <h1 class="section-title glitch" data-text="Welcome to the Matrix"># Welcome to the Matrix</h1>
+                    <div class="typing-effect">
+                        <span class="typed-text"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                </div>
+                
+                <div class="hero-card cyber-card">
+                    <div class="card-header">
+                        <div class="user-badge">
+                            <span class="badge-icon">👑</span>
+                            <span class="badge-text">SYSTEM_ARCHITECT</span>
+                        </div>
+                        <div class="timestamp">Today at 00:00</div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="cyber-title">AshstarTempest <span class="title-accent">(Ashutosh Padhi)</span></h2>
+                        <p class="cyber-subtitle">Full-Stack Developer & Code Architect</p>
+                        <p class="description">Passionate full-stack developer with expertise across multiple programming languages and frameworks. I specialize in creating robust, scalable applications that solve real-world problems through innovative technical solutions and elegant code architecture.</p>
+                        <div class="action-buttons">
+                            <button class="cyber-btn primary" data-section="projects">
+                                <span class="btn-text">VIEW_PROJECTS.exe</span>
+                                <span class="btn-glitch"></span>
+                            </button>
+                            <button class="cyber-btn secondary" data-section="contact">
+                                <span class="btn-text">CONTACT.bat</span>
+                                <span class="btn-glitch"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title glitch" data-text="System Information"># System Information</h1>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <span class="card-title">PROFILE.dat</span>
+                            <div class="timestamp">Runtime: 5+ years</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="system-info">
+                                <div class="info-line">
+                                    <span class="label">NAME:</span>
+                                    <span class="value">Ashutosh Padhi</span>
+                                </div>
+                                <div class="info-line">
+                                    <span class="label">ALIAS:</span>
+                                    <span class="value">AshstarTempest</span>
+                                </div>
+                                <div class="info-line">
+                                    <span class="label">ROLE:</span>
+                                    <span class="value">Full-Stack Developer & Code Architect</span>
+                                </div>
+                                <div class="info-line">
+                                    <span class="label">STATUS:</span>
+                                    <span class="value status-online">ONLINE - Available for freelance projects</span>
+                                </div>
+                                <div class="info-line">
+                                    <span class="label">EXPERIENCE:</span>
+                                    <span class="value">5+ years of professional development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <span class="card-title">SPECIALIZATION.cfg</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="focus-areas">
+                                <div class="focus-item">Full-Stack Development</div>
+                                <div class="focus-item">Data Structures & Algorithms</div>
+                                <div class="focus-item">Cloud Technologies</div>
+                                <div class="focus-item">DevOps Automation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title glitch" data-text="Project Repository"># Project Repository</h1>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="cyber-card project-card" data-project="dsa">
+                        <div class="card-header">
+                            <div class="project-icon">☕</div>
+                            <span class="card-title">DSA in Java</span>
+                            <div class="project-status active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="project-description">Comprehensive implementation of data structures and algorithms in Java, featuring optimized solutions and detailed explanations for competitive programming.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Algorithms</span>
+                                <span class="tech-tag">Data Structures</span>
+                                <span class="tech-tag">Problem Solving</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AshstarTempest/dsa-in-java" target="_blank" class="cyber-link">
+                                    <span class="link-text">github.repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cyber-card project-card" data-project="droplet">
+                        <div class="card-header">
+                            <div class="project-icon">☁️</div>
+                            <span class="card-title">Droplet</span>
+                            <div class="project-status active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="project-description">Innovative cloud storage solution with advanced file management capabilities, real-time sync, and seamless user experience across platforms.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Cloud Storage</span>
+                                <span class="tech-tag">API</span>
+                                <span class="tech-tag">React</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AshstarTempest/Droplet" target="_blank" class="cyber-link">
+                                    <span class="link-text">github.repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cyber-card project-card" data-project="dock-shift">
+                        <div class="card-header">
+                            <div class="project-icon">🐳</div>
+                            <span class="card-title">Dock-Shift</span>
+                            <div class="project-status active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="project-description">Container orchestration tool that simplifies deployment and management of containerized applications with automated scaling and monitoring.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">DevOps</span>
+                                <span class="tech-tag">Automation</span>
+                                <span class="tech-tag">Kubernetes</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AshstarTempest/dock-shift" target="_blank" class="cyber-link">
+                                    <span class="link-text">github.repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cyber-card project-card" data-project="datagenius">
+                        <div class="card-header">
+                            <div class="project-icon">🧠</div>
+                            <span class="card-title">DataGenius</span>
+                            <div class="project-status active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="project-description">AI-powered data analysis platform that transforms raw data into actionable insights through machine learning and advanced analytics.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Data Analysis</span>
+                                <span class="tech-tag">AI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AshstarTempest/DataGenius" target="_blank" class="cyber-link">
+                                    <span class="link-text">github.repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cyber-card project-card" data-project="sql-simplified">
+                        <div class="card-header">
+                            <div class="project-icon">🐍</div>
+                            <span class="card-title">SQL Simplified Python Edition</span>
+                            <div class="project-status active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="project-description">Educational tool that makes SQL learning accessible through Python integration, interactive examples, and hands-on tutorials.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Education</span>
+                                <span class="tech-tag">SQLite</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AshstarTempest/SQL-Simplified-Python-Edition" target="_blank" class="cyber-link">
+                                    <span class="link-text">github.repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cyber-card project-card" data-project="web-suite">
+                        <div class="card-header">
+                            <div class="project-icon">🌐</div>
+                            <span class="card-title">Web Innovation Suite</span>
+                            <div class="project-status active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <p class="project-description">Collection of modern web applications showcasing cutting-edge frontend and backend technologies with responsive design.</p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">Web APIs</span>
+                                <span class="tech-tag">Modern Web</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AshstarTempest" target="_blank" class="cyber-link">
+                                    <span class="link-text">github.repo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title glitch" data-text="System Capabilities"># System Capabilities</h1>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <span class="card-title">PROGRAMMING_LANGUAGES.dll</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">☕</span>
+                                    <span class="skill-name">Java</span>
+                                    <span class="skill-level">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">⚡</span>
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-level">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">🐍</span>
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-level">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">🔷</span>
+                                    <span class="skill-name">TypeScript</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <span class="card-title">FRAMEWORKS_TOOLS.exe</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">🟢</span>
+                                    <span class="skill-name">Node.js</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">⚛️</span>
+                                    <span class="skill-name">React</span>
+                                    <span class="skill-level">82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 82%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">🐳</span>
+                                    <span class="skill-name">Docker</span>
+                                    <span class="skill-level">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">🔀</span>
+                                    <span class="skill-name">Git</span>
+                                    <span class="skill-level">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <span class="card-title">DATABASE_SYSTEMS.db</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">🗄️</span>
+                                    <span class="skill-name">SQL</span>
+                                    <span class="skill-level">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-icon">🍃</span>
+                                    <span class="skill-name">MongoDB</span>
+                                    <span class="skill-level">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title glitch" data-text="Communication Protocols"># Communication Protocols</h1>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <span class="card-title">CONTACT_INFO.json</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="contact-item">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <div class="contact-label">EMAIL_ADDRESS</div>
+                                    <a href="mailto:ashutoshpadhi.tech" class="contact-value cyber-link">ashutoshpadhi.tech</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">🔗</div>
+                                <div class="contact-details">
+                                    <div class="contact-label">GITHUB_REPOSITORY</div>
+                                    <a href="https://github.com/AshstarTempest" target="_blank" class="contact-value cyber-link">github.com/AshstarTempest</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-details">
+                                    <div class="contact-label">LINKEDIN_PROFILE</div>
+                                    <a href="https://www.linkedin.com/in/ashutosh-padhi/" target="_blank" class="contact-value cyber-link">linkedin.com/in/ashutosh-padhi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <span class="card-title">SYSTEM_STATUS.log</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="status-display">
+                                <div class="status-line">
+                                    <span class="status-label">CONNECTION_STATUS:</span>
+                                    <span class="status-value online">ONLINE</span>
+                                </div>
+                                <div class="status-line">
+                                    <span class="status-label">AVAILABILITY:</span>
+                                    <span class="status-value available">AVAILABLE FOR FREELANCE</span>
+                                </div>
+                                <div class="status-line">
+                                    <span class="status-label">RESPONSE_TIME:</span>
+                                    <span class="status-value">< 24 HOURS</span>
+                                </div>
+                                <div class="status-line">
+                                    <span class="status-label">PREFERRED_CONTACT:</span>
+                                    <span class="status-value">EMAIL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">SYSTEM_INFO</span>
+            </div>
+            
+            <div class="info-panel">
+                <div class="panel-section">
+                    <div class="panel-title">ONLINE_STATUS</div>
+                    <div class="status-user">
+                        <div class="status-avatar">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2336393f'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-family='Arial' font-size='30' fill='%2300ffff'%3EAT%3C/text%3E%3C/svg%3E" alt="Avatar">
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="status-name">AshstarTempest</div>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <div class="panel-title">QUICK_STATS</div>
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <span class="stat-label">Projects:</span>
+                            <span class="stat-value">6</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Languages:</span>
+                            <span class="stat-value">10+</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Experience:</span>
+                            <span class="stat-value">5+ years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
