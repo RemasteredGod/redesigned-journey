@@ -63,18 +63,49 @@
 @media (max-width: 768px) {
   /* Show mobile hamburger header */
   .mobile-hamburger {
-    display: flex;
+    display: flex !important;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 60px;
-    background: var(--cyber-bg-primary);
-    border-bottom: 1px solid var(--cyber-border);
+    background: #0a0a0f !important; /* Explicit fallback color */
+    border-bottom: 1px solid #ff00ff40;
     z-index: 1000;
     align-items: center;
     justify-content: space-between;
-    padding: 0 var(--space-16);
+    padding: 0 16px;
+  }
+
+  .hamburger-btn {
+    background: none !important;
+    border: none !important;
+    cursor: pointer;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    transition: all 150ms ease;
+  }
+
+  .hamburger-btn:hover {
+    background: #1a1a2e !important;
+    box-shadow: 0 0 10px #00ffff80;
+  }
+
+  .hamburger-line {
+    width: 20px !important;
+    height: 2px !important;
+    background: #00ffff !important;
+    border-radius: 1px;
+    transition: all 150ms ease;
+    box-shadow: 0 0 5px #00ffff80;
+    display: block !important;
   }
 
   /* Show mobile overlay */
