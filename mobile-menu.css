@@ -1,0 +1,242 @@
+/* Mobile Hamburger Menu Styles */
+
+/* Mobile hamburger menu - hidden by default */
+.mobile-hamburger {
+  display: none;
+}
+
+.mobile-overlay {
+  display: none;
+}
+
+/* Hamburger button styles */
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-8);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-fast);
+}
+
+.hamburger-btn:hover {
+  background: var(--cyber-bg-secondary);
+  box-shadow: 0 0 10px var(--cyber-accent-glow);
+}
+
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background: var(--cyber-accent);
+  border-radius: 1px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 0 5px var(--cyber-accent-glow);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-logo .logo-text {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--cyber-accent);
+  text-shadow: 0 0 10px var(--cyber-accent-glow);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  /* Show mobile hamburger header */
+  .mobile-hamburger {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--cyber-bg-primary);
+    border-bottom: 1px solid var(--cyber-border);
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-16);
+  }
+
+  /* Show mobile overlay */
+  .mobile-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-smooth);
+  }
+
+  .mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Adjust main container for mobile header */
+  .discord-container {
+    padding-top: 60px;
+  }
+
+  /* Transform sidebar into mobile menu */
+  .sidebar {
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    width: 280px !important;
+    height: calc(100vh - 60px) !important;
+    transform: translateX(-100%) !important;
+    transition: transform var(--transition-smooth) !important;
+    z-index: 999 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    overflow-y: auto !important;
+    background: var(--cyber-bg-primary) !important;
+    border-right: 1px solid var(--cyber-border) !important;
+    grid-row: unset !important;
+    padding: var(--space-16) !important;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  /* Fix server info for mobile */
+  .sidebar .server-info {
+    border-bottom: 1px solid var(--cyber-border) !important;
+    border-right: none !important;
+    padding-right: 0 !important;
+    padding-bottom: var(--space-16) !important;
+    margin-right: 0 !important;
+    margin-bottom: var(--space-16) !important;
+    flex-shrink: 0 !important;
+    text-align: center !important;
+  }
+
+  .sidebar .server-icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 auto var(--space-8) !important;
+  }
+
+  .sidebar .icon-text {
+    font-size: var(--font-size-lg) !important;
+  }
+
+  .sidebar .server-name {
+    font-size: var(--font-size-md) !important;
+  }
+
+  /* Fix channel list for mobile */
+  .sidebar .channel-list {
+    flex: 1 !important;
+    min-width: auto !important;
+  }
+
+  .sidebar .channels {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-4) !important;
+    overflow-x: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .sidebar .channel {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: var(--font-size-sm) !important;
+    padding: var(--space-12) var(--space-16) !important;
+    border-radius: var(--border-radius) !important;
+    transition: all var(--transition-fast) !important;
+    cursor: pointer !important;
+  }
+
+  .sidebar .channel:hover {
+    background: var(--cyber-bg-secondary) !important;
+    box-shadow: 0 0 10px var(--cyber-accent-glow) !important;
+  }
+
+  .sidebar .channel.active {
+    background: var(--cyber-accent) !important;
+    color: var(--cyber-bg-primary) !important;
+    box-shadow: 0 0 15px var(--cyber-accent-glow) !important;
+  }
+
+  /* Fix user area for mobile */
+  .sidebar .user-area {
+    border-top: 1px solid var(--cyber-border) !important;
+    border-left: none !important;
+    padding-top: var(--space-16) !important;
+    padding-left: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .sidebar .user-info {
+    flex-direction: row !important;
+    gap: var(--space-12) !important;
+    align-items: center !important;
+  }
+
+  .sidebar .avatar {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .sidebar .username,
+  .sidebar .status {
+    font-size: var(--font-size-sm) !important;
+  }
+
+  /* Adjust main content */
+  .main-content {
+    margin-left: 0 !important;
+  }
+}
+
+/* Smaller mobile adjustments */
+@media (max-width: 480px) {
+  .mobile-hamburger {
+    padding: 0 var(--space-12);
+  }
+
+  .sidebar {
+    width: 260px !important;
+  }
+
+  .sidebar .server-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .sidebar .icon-text {
+    font-size: var(--font-size-md) !important;
+  }
+
+  .sidebar .server-name {
+    font-size: var(--font-size-sm) !important;
+  }
+}

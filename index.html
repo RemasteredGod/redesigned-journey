@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AshstarTempest - Cyberpunk Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile-menu.css">
 </head>
 <body>
     <!-- Cyberpunk Loader -->
@@ -34,10 +35,25 @@
     <!-- Scanlines Overlay -->
     <div class="scanlines"></div>
     
+    <!-- Mobile Hamburger Menu -->
+    <div class="mobile-hamburger">
+        <button class="hamburger-btn" id="hamburger-toggle">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <div class="mobile-logo">
+            <span class="logo-text glitch" data-text="AT">AT</span>
+        </div>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
     <!-- Main Container -->
     <div class="discord-container">
         <!-- Left Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="server-info">
                 <div class="server-icon">
                     <span class="icon-text glitch" data-text="AT">AT</span>

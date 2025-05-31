@@ -181,6 +181,10 @@ class Navigation {
         this.channels = document.querySelectorAll('.channel');
         this.sections = document.querySelectorAll('.content-section');
         this.buttons = document.querySelectorAll('[data-section]');
+        this.hamburgerBtn = document.getElementById('hamburger-toggle');
+        this.sidebar = document.getElementById('sidebar');
+        this.mobileOverlay = document.getElementById('mobile-overlay');
+        this.isMobileMenuOpen = false;
         
         this.init();
     }
@@ -192,6 +196,11 @@ class Navigation {
                 const sectionName = channel.getAttribute('data-section');
                 this.showSection(sectionName);
                 this.setActiveChannel(channel);
+                
+                // Close mobile menu when navigating
+                if (this.isMobileMenuOpen) {
+                    this.closeMobileMenu();
+                }
             });
         });
         
@@ -205,6 +214,58 @@ class Navigation {
                 });
             }
         });
+        
+        // Hamburger menu functionality
+        if (this.hamburgerBtn) {
+            this.hamburgerBtn.addEventListener('click', () => {
+                this.toggleMobileMenu();
+            });
+        }
+        
+        // Mobile overlay click to close menu
+        if (this.mobileOverlay) {
+            this.mobileOverlay.addEventListener('click', () => {
+                this.closeMobileMenu();
+            });
+        }
+        
+        // Close menu on window resize if mobile menu is open
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && this.isMobileMenuOpen) {
+                this.closeMobileMenu();
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isMobileMenuOpen) {
+                this.closeMobileMenu();
+            }
+        });
+    }
+    
+    toggleMobileMenu() {
+        if (this.isMobileMenuOpen) {
+            this.closeMobileMenu();
+        } else {
+            this.openMobileMenu();
+        }
+    }
+    
+    openMobileMenu() {
+        this.isMobileMenuOpen = true;
+        this.hamburgerBtn.classList.add('active');
+        this.sidebar.classList.add('mobile-open');
+        this.mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    closeMobileMenu() {
+        this.isMobileMenuOpen = false;
+        this.hamburgerBtn.classList.remove('active');
+        this.sidebar.classList.remove('mobile-open');
+        this.mobileOverlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
     }
     
     showSection(sectionName) {
